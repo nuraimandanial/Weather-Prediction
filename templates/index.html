@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Weather Prediction</h1>
+    </header>
+    
+    <div class="input">
+        <h1>Input</h1>
+        <form action="/getprediction" method="post">
+            <div class="form-box">
+                <div class="icon-form">
+                    <img class="input-icon" src="{{ url_for('static', filename='temp_icon.png') }}" alt="Temperature Icon">
+                    <label for="temp_c">Temperature</label>
+                </div>
+                <input type="text" id="temp_c" name="temp_c" placeholder="Enter temperature (°C)"><br>
+            </div>
+            <div class="form-box">
+                <div class="icon-form">
+                    <img class="input-icon" src="{{ url_for('static', filename='dewpoint_icon.png') }}" alt="Dew Point Icon">
+                    <label for="dew_point_temp_c">Dew Point</label>
+                </div>
+                <input type="text" id="dew_point_temp_c" name="dew_point_temp_c" placeholder="Enter dew point temperature (°C)"><br>
+            </div>
+            <div class="form-box">
+                <div class="icon-form">
+                    <img class="input-icon" src="{{ url_for('static', filename='hum_icon.png') }}" alt="Humidity Icon">
+                    <label for="rel_hum">Humidity</label>
+                </div>
+                <input type="text" id="rel_hum" name="rel_hum" placeholder="Enter humidity (%)"><br>
+            </div>
+            <div class="form-box">
+                <div class="icon-form">
+                    <img class="input-icon" src="{{ url_for('static', filename='wind_icon.png') }}" alt="Wind Speed Icon">
+                    <label for="wind_speed">Wind Speed</label>
+                </div>
+                <input type="text" id="wind_speed" name="wind_speed" placeholder="Enter wind speed (km/h)"><br>
+            </div>
+            <div class="form-box">
+                <div class="icon-form">
+                    <img class="input-icon" src="{{ url_for('static', filename='visibility_icon.png') }}" alt="Visibility Icon">
+                    <label for="visibility">Visibility</label>
+                </div>
+                <input type="text" id="visibility" name="visibility" placeholder="Enter visibility (km)"><br>
+            </div>
+            <div class="form-box">
+                <div class="icon-form">
+                    <img class="input-icon" src="{{ url_for('static', filename='pressure_icon.png') }}" alt="Pressure Icon">
+                    <label for="press_kpa">Pressure</label>
+                </div>
+                <input type="text" id="press_kpa" name="press_kpa" placeholder="Enter pressure (kPa)"><br>
+            </div>
+            <div id="submit">
+                <input class="submit" type="submit" value="Predict Weather">
+            </div>
+        </form>
+    </div>
+    
+    <div class="input">
+        <h1>Output</h1>
+        <div class="output">
+            <img id="output-icon" src="{{ url_for('static', filename=image_file) }}" alt="">
+            <h1>{{output}}</h1>
+        </div>
+    </div>
+</body>
+</html>
